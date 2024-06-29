@@ -69,3 +69,6 @@ end
 gem "devise", "~> 4.9"
 
 gem "tailwindcss-rails", "~> 2.6"
+
+# Use PostgreSQL as the database for Active Record
+gem 'pg'
