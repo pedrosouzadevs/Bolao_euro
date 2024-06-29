@@ -1,5 +1,5 @@
 class BetsController < ApplicationController
-  after_action :verify_authorized, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
   def new
     @bet = Bet.new
   end

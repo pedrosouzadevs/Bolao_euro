@@ -1,5 +1,5 @@
 class BetChampionsController < ApplicationController
-  after_action :verify_authorized, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @bets = BetChampion.all
   end
