@@ -9,7 +9,7 @@
                 <%= Team.find(bet.team_id).name %>
               </p>
               <p class="px-6  flex justify-center py-3 text-center font-small break-all text-gray-400 max-w-1/3">
-                <%= image_tag("#{Team.find(bet.team_id).id}", alt: '', size: '80x80', class:"rounded py-1") %>
+                <%= render 'shared/flags_team_a', team: Team.find(bet.team_id) %>
               </p>
             </th>
             <th scope="row" class="px-6 py-4 max-w-80">

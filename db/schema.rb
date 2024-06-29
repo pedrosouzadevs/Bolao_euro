@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_28_185620) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_28_183911) do
   create_table "bet_champions", force: :cascade do |t|
     t.integer "team_id", null: false
     t.integer "user_id", null: false
@@ -18,64 +18,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_185620) do
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_bet_champions_on_team_id"
     t.index ["user_id"], name: "index_bet_champions_on_user_id"
-  end
-
-  create_table "bet_finals", force: :cascade do |t|
-    t.integer "match_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["match_id"], name: "index_bet_finals_on_match_id"
-    t.index ["user_id"], name: "index_bet_finals_on_user_id"
-  end
-
-  create_table "bet_first_rounds", force: :cascade do |t|
-    t.integer "match_1_id", null: false
-    t.integer "match_2_id", null: false
-    t.integer "match_3_id", null: false
-    t.integer "match_4_id", null: false
-    t.integer "match_5_id", null: false
-    t.integer "match_6_id", null: false
-    t.integer "match_7_id", null: false
-    t.integer "match_8_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["match_1_id"], name: "index_bet_first_rounds_on_match_1_id"
-    t.index ["match_2_id"], name: "index_bet_first_rounds_on_match_2_id"
-    t.index ["match_3_id"], name: "index_bet_first_rounds_on_match_3_id"
-    t.index ["match_4_id"], name: "index_bet_first_rounds_on_match_4_id"
-    t.index ["match_5_id"], name: "index_bet_first_rounds_on_match_5_id"
-    t.index ["match_6_id"], name: "index_bet_first_rounds_on_match_6_id"
-    t.index ["match_7_id"], name: "index_bet_first_rounds_on_match_7_id"
-    t.index ["match_8_id"], name: "index_bet_first_rounds_on_match_8_id"
-    t.index ["user_id"], name: "index_bet_first_rounds_on_user_id"
-  end
-
-  create_table "bet_second_rounds", force: :cascade do |t|
-    t.integer "match_1_id", null: false
-    t.integer "match_2_id", null: false
-    t.integer "match_3_id", null: false
-    t.integer "match_4_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["match_1_id"], name: "index_bet_second_rounds_on_match_1_id"
-    t.index ["match_2_id"], name: "index_bet_second_rounds_on_match_2_id"
-    t.index ["match_3_id"], name: "index_bet_second_rounds_on_match_3_id"
-    t.index ["match_4_id"], name: "index_bet_second_rounds_on_match_4_id"
-    t.index ["user_id"], name: "index_bet_second_rounds_on_user_id"
-  end
-
-  create_table "bet_third_rounds", force: :cascade do |t|
-    t.integer "match_1_id", null: false
-    t.integer "match_2_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["match_1_id"], name: "index_bet_third_rounds_on_match_1_id"
-    t.index ["match_2_id"], name: "index_bet_third_rounds_on_match_2_id"
-    t.index ["user_id"], name: "index_bet_third_rounds_on_user_id"
   end
 
   create_table "bets", force: :cascade do |t|
@@ -148,25 +90,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_185620) do
 
   add_foreign_key "bet_champions", "teams"
   add_foreign_key "bet_champions", "users"
-  add_foreign_key "bet_finals", "matches"
-  add_foreign_key "bet_finals", "users"
-  add_foreign_key "bet_first_rounds", "match_1s"
-  add_foreign_key "bet_first_rounds", "match_2s"
-  add_foreign_key "bet_first_rounds", "match_3s"
-  add_foreign_key "bet_first_rounds", "match_4s"
-  add_foreign_key "bet_first_rounds", "match_5s"
-  add_foreign_key "bet_first_rounds", "match_6s"
-  add_foreign_key "bet_first_rounds", "match_7s"
-  add_foreign_key "bet_first_rounds", "match_8s"
-  add_foreign_key "bet_first_rounds", "users"
-  add_foreign_key "bet_second_rounds", "match_1s"
-  add_foreign_key "bet_second_rounds", "match_2s"
-  add_foreign_key "bet_second_rounds", "match_3s"
-  add_foreign_key "bet_second_rounds", "match_4s"
-  add_foreign_key "bet_second_rounds", "users"
-  add_foreign_key "bet_third_rounds", "match_1s"
-  add_foreign_key "bet_third_rounds", "match_2s"
-  add_foreign_key "bet_third_rounds", "users"
   add_foreign_key "bets", "matches"
   add_foreign_key "bets", "teams", column: "winner_id"
   add_foreign_key "bets", "users"
