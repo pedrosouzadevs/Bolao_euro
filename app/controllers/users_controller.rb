@@ -7,6 +7,8 @@ class UsersController < ApplicationController
         user.score =+ bet.score
       end
     end
+    @admins = @users.select { |user| user.admin == true }
+    @users = @users - @admins
     @users = @users.sort_by { |user| user.score }.reverse
   end
 end
