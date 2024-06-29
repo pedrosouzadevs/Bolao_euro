@@ -1,0 +1,2 @@
+module BetChampionsHelper
+end

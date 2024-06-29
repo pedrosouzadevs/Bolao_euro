@@ -1,0 +1,37 @@
+<% if notice %>
+  <div  class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-5 py-3 shadow-md mb-4 fixed bottom-4 right-4 z-50" role="alert"
+        data-controller="alert">
+    <div class="flex items-center">
+      <div class="py-1">
+        <%= notice %>
+      </div>
+      <button type="button"
+              class="ml-auto bg-transparent text-blue-500 hover:text-blue-700 focus:outline-none px-2"
+              data-dismiss="alert"
+              aria-label="Close"
+              data-alert-target="button_notice"
+              data-action="click->alert#close">
+        X
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div  class="bg-yellow-100 border-t-4 border-yellow-500 rounded-b text-yellow-900 px-5 py-3 shadow-md mb-4 fixed bottom-4 right-4 z-50" role="alert"
+        data-controller="alert">
+    <div class="flex items-center">
+      <div class="py-1">
+        <%= alert %>
+      </div>
+      <button type="button"
+              class="ml-auto bg-transparent text-yellow-500 hover:text-yellow-700 focus:outline-none px-2"
+              data-dismiss="alert"
+              aria-label="Close"
+              data-alert-target="button_alert"
+              data-action="click->alert#close">
+        X
+      </button>
+    </div>
+  </div>
+<% end %>

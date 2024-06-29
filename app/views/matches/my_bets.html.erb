@@ -1,0 +1,58 @@
+<div class="flex items-center justify-center" >
+  <div class="flex w-2/3 min-h-full flex-col justify-center mx-6 my-8 lg:mx-8 shadow-md sm:rounded-lg">
+    <table class="divide-y  divide-gray-200 text-sm rtl:text-right ">
+      <tbody >
+        <% @bets.each do |bet| %>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <% match =  Match.find(bet.match_id) %>
+            <th>
+              <p class="px-6 py-3 text-center font-small break-all text-gray-400 max-w-1/3">
+                <%= match.team_a.name %>
+              </p>
+              <p class="px-6  flex justify-center py-3 text-center font-small break-all text-gray-400 max-w-1/3">
+                <%= image_tag("#{match.team_a.id}", alt: '', size: '80x80', class:"rounded py-1") %>
+              </p>
+            </th>
+            <th>
+              <p class="px-6 py-3 text-center font-small break-all text-gray-400 max-w-1/3">
+                <%= "#{bet.score_team_a} X #{bet.score_team_b}" %>
+              </p>
+            </th>
+            <th>
+              <p class="px-6 py-3 text-center font-small break-all text-gray-400 max-w-1/3">
+                <%= match.team_b.name %>
+              </p>
+              <p class="px-6  flex justify-center py-3 text-center font-small break-all text-gray-400 max-w-1/3">
+                <%= image_tag("#{match.team_b.id}", alt: '', size: '80x80', class:"rounded py-1") %>
+              </p>
+            </th>
+            <th>
+              <% if bet.score == 0 %>
+                <p class="px-6 py-3 text-center font-small break-all text-red-600 max-w-1/3">
+                  <%= bet.score %>
+                </p>
+              <% elsif bet.score == 2 %>
+                <p class="px-6 py-3 text-center font-small break-all text-orange-600 max-w-1/3">
+                  <%= bet.score %>
+                </p>
+              <% elsif bet.score == 5 %>
+                <p class="px-6 py-3 text-center font-small break-all text-amber-500 max-w-1/3">
+                  <%= bet.score %>
+                </p>
+              <% elsif bet.score == 7 %>
+                <p class="px-6 py-3 text-center font-small break-all text-lime-500 max-w-1/3">
+                  <%= bet.score %>
+                </p>
+              <% elsif bet.score == 10 %>
+                <p class="px-6 py-3 text-center font-small break-all text-emerald-500 max-w-1/3">
+                  <%= bet.score %>
+                </p>
+              <% end %>
+
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
