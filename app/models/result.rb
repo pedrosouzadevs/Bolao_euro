@@ -1,7 +1,7 @@
 class Result < ApplicationRecord
   belongs_to :match
-  belongs_to :team_a, class_name: 'Team'
-  belongs_to :team_b, class_name: 'Team'
+  belongs_to :team_a_id, class_name: 'Team'
+  belongs_to :team_b_id, class_name: 'Team'
   belongs_to :winner_id, class_name: 'Team'
   after_save :refresh_bets
 
