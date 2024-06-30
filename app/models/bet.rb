@@ -20,13 +20,13 @@ class Bet < ApplicationRecord
   end
 
   def update_score(score_team_a, score_team_b, winner_id)
-    if self.score_team_a == score_team_a && self.score_team_b == score_team_b && self.winner == winner_id
+    if self.score_team_a == score_team_a && self.score_team_b == score_team_b && self.winner_id == winner_id
       self.update(score: 10)  # Pontuação arbitrária para exemplo
-    elsif self.score_team_a == score_team_a || self.score_team_b == score_team_b && self.winner == winner_id
+    elsif self.score_team_a == score_team_a || self.score_team_b == score_team_b && self.winner_id == winner_id
       self.update(score: 7)
-    elsif self.winner == winner_id
+    elsif self.winner_id == winner_id
       self.update(score: 5)
-    elsif self.score_team_a == score_team_a && self.score_team_b == score_team_b && self.winner != winner_id
+    elsif self.score_team_a == score_team_a && self.score_team_b == score_team_b && self.winner_id != winner_id
       self.update(score: 5)
     elsif self.score_team_a == score_team_a || self.score_team_b == score_team_b
       self.update(score: 2)
