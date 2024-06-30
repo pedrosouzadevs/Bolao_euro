@@ -33,4 +33,5 @@ class Bet < ApplicationRecord
     else
       self.update(score: 0)
     end
+  end
 end
