@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @users.each do |user|
       bets = Bet.where(user_id: user.id)
       bets.each do |bet|
-        user.score =+ bet.score
+        user.score = user.score + bet.score
       end
     end
     @admins = @users.select { |user| user.admin == true }
