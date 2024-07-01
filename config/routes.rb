@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "my_bets" => "matches#my_bets"
   get "champions" => "bet_champions#index"
   get "ranking" => "users#ranking"
+  get "allbets" => "users#all_bets"
 
   # Defines the root path route ("/")
 end

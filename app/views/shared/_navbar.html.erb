@@ -11,6 +11,7 @@
             <%= link_to 'Home', root_path, class: class_root  %>
             <%= link_to 'Champion Bets', champions_path, class: class_root  %>
             <%= link_to 'Ranking', ranking_path, class: class_root  %>
+            <%= link_to 'All Bets', allbets_path, class: class_root  %>
             <% if current_user != nil %>
               <% class_my_bets = (@current_controller == 'Matches' && @current_action == 'my_bets') ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" %>
               <%= link_to 'My Bets', my_bets_path, class: class_my_bets %>
@@ -42,6 +43,7 @@
       <%= link_to 'Home', root_path, class: class_root  %>
       <%= link_to 'Champion Bets', champions_path, class: class_root  %>
       <%= link_to 'Ranking', ranking_path, class: class_root  %>
+      <%= link_to 'All Bets', allbets_path, class: class_root  %>
       <% if current_user != nil %>
         <% class_my_bets = (@current_controller == 'Matches' && @current_action == 'my_bets') ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" %>
         <%= link_to 'My Bets', my_bets_path, class: class_my_bets %>
