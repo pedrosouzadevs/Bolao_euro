@@ -36,14 +36,18 @@
               </div>
             </th>
             <% @users.each do |user| %>
-              <th>
+             <th>
                 <% bet = Bet.find_by(match_id: match.id, user_id: user.id) %>
-                <p>
-                  <%= bet.score_team_a %> X <%= bet.score_team_b %>
-                </p>
-                <p>
-                  <%= Team.find(bet.winner_id).name %>
-                </p>
+                <% if bet.present? %>
+                  <p>
+                    <%= bet.score_team_a %> X <%= bet.score_team_b %>
+                  </p>
+                  <p>
+                    <%= Team.find(bet.winner_id).name %>
+                  </p>
+                <% else %>
+                  <p>Sem aposta</p>
+                <% end %>
               </th>
             <% end %>
           </tr>
