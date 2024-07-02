@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def all_bets
     @matches = Match.all
-    @matches = @matches.sort_by { |match| match.round_id }
+    @matches = @matches.sort_by { |match| match.round_id }.reverse
     @users = User.all
     @admins = @users.select { |user| user.admin == true }
     @users = @users - @admins
