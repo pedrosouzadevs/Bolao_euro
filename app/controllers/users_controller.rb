@@ -13,11 +13,11 @@ class UsersController < ApplicationController
   end
 
   def all_bets
-    @matches = Match.where(round_id: 1)
+    @matches = Match.all
+    @matches = @matches.sort_by { |match| match.round_id }
     @users = User.all
     @admins = @users.select { |user| user.admin == true }
     @users = @users - @admins
     @users = @users.sort_by { |user| user.score }.reverse
-    @bets = Bet.where(match_id:1..8).count
   end
 end
