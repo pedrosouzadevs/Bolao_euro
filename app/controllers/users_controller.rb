@@ -13,7 +13,11 @@ class UsersController < ApplicationController
   end
 
   def all_bets
-    @matches = Match.where(round_id: 1 && 2)
+    @matches_1 = Match.where(round_id: 1)
+    @matches_2 = Match.where(round_id: 2)
+    @matches_3 = Match.where(round_id: 3)
+    @matches_4 = Match.where(round_id: 4)
+    @matches = @matches_1 + @matches_2
     @users = User.all
     @admins = @users.select { |user| user.admin == true }
     @users = @users - @admins
