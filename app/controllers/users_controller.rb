@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @matches_2 = Match.where(round_id: 2)
     @matches_3 = Match.where(round_id: 3)
     @matches_4 = Match.where(round_id: 4)
-    @matches = @matches_1 + @matches_2
+    @matches = @matches_2 + @matches_1
     @users = User.all
     @admins = @users.select { |user| user.admin == true }
     @users = @users - @admins
